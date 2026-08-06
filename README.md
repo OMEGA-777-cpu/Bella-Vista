@@ -288,3 +288,196 @@ body {
 
 > **Analogy:** *Turning on a light switch when hovering over a button.*
 > Applies a subtle transparent white highlight behind any link when the mouse cursor rests over it.
+
+# Lecture 2: Hero Section & Call-to-Action (CTA)
+
+Building the main spotlight section of the **Bella Vista** restaurant website. This section introduces full-screen hero layouts, background dimming overlay techniques, centered flexbox alignment, and interactive button styles.
+
+---
+
+## 📄 HTML Line-by-Line Breakdown
+
+```html
+<section class="hero" id="home">
+
+```
+
+> **Analogy:** *The main storefront billboard.*
+> Using the semantic `<section>` tag with an `id="home"` allows top navigation links (like `<a href="#home">`) to jump straight to this top area when clicked.
+
+```html
+<div class="hero-content">
+
+```
+
+> **Analogy:** *The spotlight box in the middle of the stage.*
+> A wrapper element used to group the title, paragraph, and buttons together so we can center all of them at once.
+
+```html
+<h1>Taste the Authenticity of Italy</h1>
+
+```
+
+> **Analogy:** *The big neon sign over the entrance.*
+> The main headline of the hero section designed to immediately catch the visitor's attention.
+
+```html
+<p>Handcrafted pasta, wood-fired pizzas, and timeless family recipes made fresh daily.</p>
+
+```
+
+> **Analogy:** *The short elevator pitch.*
+> A supporting description giving visitors an instant summary of what makes the restaurant special.
+
+```html
+<div class="hero-buttons">
+
+```
+
+> **Analogy:** *The action tray holding two main doors.*
+> A container grouping our primary call-to-action buttons together in a neat horizontal row.
+
+```html
+<a href="#menu" class="btn btn-primary">View Our Menu</a>
+<a href="#contact" class="btn btn-secondary">Book a Table</a>
+
+```
+
+> **Analogy:** *The red carpet entrance vs. the side reservation desk.*
+> * `btn`: Shared base styling (padding, rounded corners, hover transitions).
+> * `btn-primary`: High-contrast, filled button for the main action (View Menu).
+> * `btn-secondary`: Transparent/outlined button for a secondary action (Book a Table).
+> 
+> 
+
+---
+
+## 🎨 CSS Line-by-Line Breakdown
+
+### Hero Container & Layout
+
+```css
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+```
+
+> **Analogy:** *Setting up a massive movie screen with sunglasses over the picture.*
+> * `min-height: 100vh`: Forces the hero section to fill **100% of the viewport height** (the full visible screen).
+> * `linear-gradient(rgba(0,0,0,0.6)...)`: Applies a **dark semi-transparent overlay** over the background image so white text stays readable.
+> * `url(...) no-repeat center center/cover`: Centers the background image and scales it to cover the whole screen without stretching or repeating.
+> * `display: flex; justify-content: center; align-items: center;`: **Bullseye centering**—places the content perfectly in the center horizontally and vertically.
+> 
+> 
+
+---
+
+### Hero Typography & Text Styling
+
+```css
+.hero-content {
+    max-width: 800px;
+}
+
+```
+
+> **Analogy:** *Setting text margins in a book.*
+> Limits paragraph width so long sentences don't stretch awkwardly across wide monitor screens.
+
+```css
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+```
+
+> **Analogy:** *Turning up the volume knob on your title.*
+> Makes the headline extra large (`3.5rem`), bold, and pushes content below it down using a 1rem bottom margin.
+
+```css
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+```
+
+> **Analogy:** *Subtle lighting for reading comfort.*
+> Enlarges paragraph text slightly and uses `opacity: 0.9` to soften pure white text for easier reading over background images.
+
+---
+
+### Call-to-Action (CTA) Buttons
+
+```css
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+```
+
+> **Analogy:** *Placing two chairs side-by-side with a gap between them.*
+> Uses Flexbox to line up buttons horizontally with a consistent `1rem` gap between them.
+
+```css
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+```
+
+> **Analogy:** *Manufacturing blank physical buttons before painting them.*
+> Gives both buttons equal padding, removes link underlines, rounds corners, and adds a `0.3s` smooth animation transition for hover effects.
+
+```css
+.btn-primary {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+```
+
+> **Analogy:** *A vibrant red button that lifts slightly when your hand hovers over it.*
+> Uses warm crimson red for the main action button and darkens the red while shifting it up `2px` (`translateY`) when hovered.
+
+```css
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #2c3e50;
+}
+
+```
+
+> **Analogy:** *A clear glass button that fills with solid white light when touched.*
+> Creates a sleek ghost button (transparent inside, white border) that flips to a solid white background on mouse hover.
+
+```
