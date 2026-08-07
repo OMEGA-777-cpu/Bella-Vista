@@ -480,4 +480,211 @@ Building the main spotlight section of the **Bella Vista** restaurant website. T
 > **Analogy:** *A clear glass button that fills with solid white light when touched.*
 > Creates a sleek ghost button (transparent inside, white border) that flips to a solid white background on mouse hover.
 
+# Lecture 3: Menu Section & Component Cards
+
+Building the interactive **Our Menu** section of the Bella Vista website using semantic HTML5, CSS Grid layout, and elevation card components with hover micro-interactions.
+
+---
+
+## 📄 HTML Line-by-Line Breakdown
+
+```html
+<main>
+
 ```
+
+> **Analogy:** *The main stage where the primary performance takes place.*
+> A semantic wrapper tag that informs search engines and screen readers where the core content of the page lives (excluding header and footer).
+
+```html
+<section id="menu" class="menu">
+
+```
+
+> **Analogy:** *Dedicated dining section in a restaurant layout.*
+> Defines a distinct logical area for the food menu, using `id="menu"` so header links (`href="#menu"`) scroll smoothly directly to this spot.
+
+```html
+<div class="container">
+
+```
+
+> **Analogy:** *Invisible safety guardrails.*
+> Reuses our container class to keep the menu centered and bounded within 1200px across large monitors.
+
+```html
+<h2 class="section-title">Our Menu</h2>
+<p class="section-subtitle">Discover our carefully crafted dishes.</p>
+
+```
+
+> **Analogy:** *The overhead signpost and tagline at a department entrance.*
+> Creates a clean visual hierarchy using a prominent section title (`<h2>`) paired with a muted tagline (`<p>`) directly below it.
+
+```html
+<div class="menu-categories">
+    <div class="menu-category">
+        <h3>Appetizers</h3>
+
+```
+
+> **Analogy:** *Chapter titles in a food catalog.*
+> Groups food items into logical categories (like Appetizers, Main Courses, Desserts) so customers can quickly scan the menu.
+
+```html
+<div class="menu-items">
+
+```
+
+> **Analogy:** *A structured tray grid holding individual dish cards.*
+> Serves as the CSS Grid parent container that organizes all individual food item cards into a neat, uniform layout.
+
+```html
+<div class="menu-item">
+    <div class="menu-item-info">
+        <h4>Bruschetta Italiana</h4>
+        <p>Fresh tomatoes, basil, and mozzarella on toasted bread.</p>
+    </div>
+    <span class="price">$12</span>
+</div>
+
+```
+
+> **Analogy:** *A physical recipe card on display.*
+> Encapsulates a single menu item component, separating the dish info (`<h4>` title and `<p>` description) from the price tag (`<span>`).
+
+---
+
+## 🎨 CSS Line-by-Line Breakdown
+
+### Section Background & Header Styling
+
+```css
+.menu {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+```
+
+> **Analogy:** *Painting a wall a soft off-white to contrast with white cards.*
+> Gives the entire section generous top and bottom spacing (`5rem`), and applies a subtle light gray background (`#f8f9fa`) to make white menu cards pop visually.
+
+```css
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+```
+
+> **Analogy:** *Formatting book headings for maximum readability.*
+> Centers the titles, uses high-contrast dark navy `#2c3e50` for the main title, and muted gray `#666` for the subtitle with extra bottom space (`3rem`) before content starts.
+
+---
+
+### Category Titles & Accent Lines
+
+```css
+.menu-category {
+    margin-bottom: 3rem;
+}
+
+.menu-category h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 0.5rem;
+}
+
+```
+
+> **Analogy:** *Underlining important notes with a vibrant red highlighter.*
+> Adds a solid red underline (`border-bottom: 2px solid #e74c3c`) under category headers to create an elegant visual divider across the section.
+
+---
+
+### Grid Layout & Menu Card Components
+
+```css
+.menu-items {
+    display: grid;
+    gap: 1.5rem;
+}
+
+```
+
+> **Analogy:** *An automated grid tray holding cards in place.*
+> Turns on **CSS Grid** layout mode to stack menu items automatically with a consistent `1.5rem` gap between each card.
+
+```css
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+```
+
+> **Analogy:** *Crafting a clean paper card resting softly on a table.*
+> * `display: flex; justify-content: space-between`: Pushes dish info to the left and price to the far right.
+> * `align-items: flex-start`: Aligns price to top edge alongside the title.
+> * `background-color: white; border-radius: 8px`: Soft white card background with rounded corners.
+> * `box-shadow: 0 2px 10px rgba(0,0,0,0.1)`: Gives the card subtle depth so it appears floating above the page.
+> 
+> 
+
+```css
+.menu-item:hover {
+    transform: translateY(-3px);
+}
+
+```
+
+> **Analogy:** *Lifting a card up with your fingertips when hovering over it.*
+> Moves the menu card up by 3 pixels on mouse hover, creating an interactive, tangible feel.
+
+```css
+.menu-item-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.menu-item-info p {
+    color: #666;
+    line-height: 1.4;
+}
+
+```
+
+> **Analogy:** *Setting bold title text vs soft ingredient descriptions on a label.*
+> Styles dish titles in bold dark blue and descriptions in readable gray with comfortable line height (`1.4`).
+
+```css
+.price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-left: 1rem;
+}
+
+```
+
+> **Analogy:** *A bright red price tag sticker.*
+> Highlights the price in bold red text (`#e74c3c`) so customers can instantly spot cost details.
