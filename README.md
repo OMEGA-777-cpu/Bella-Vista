@@ -855,3 +855,222 @@ Building the **About Bella Vista** brand story section using two-column CSS Grid
 > 
 > 
 > * `box-shadow: 0 4px 15px rgba(0,0,0,0.1)`: Gives the photo subtle elevation depth off the white page.
+
+# Lecture 5: Contact Section & Reservation Forms
+
+Building the **Contact & Table Reservation** section of the Bella Vista website using HTML5 form elements, interactive dropdowns, multi-line text areas, and CSS focus state animations[cite: 7, 8].
+
+---
+
+## 📄 HTML Line-by-Line Breakdown
+
+```html
+<section id="contact" class="contact">
+
+```
+
+> **Analogy:** *Setting up a physical front-desk lobby.*
+> A semantic `<section>` wrapper using `id="contact"` so navigation links (`href="#contact"`) smoothly scroll down to this area.
+> 
+> 
+
+```html
+<div class="contact-content">
+
+```
+
+> **Analogy:** *A split reception counter.*
+> A CSS Grid parent container that divides contact information (left) and the reservation form (right) side-by-side.
+> 
+> 
+
+```html
+<div class="contact-info">
+    <h3>Get in Touch</h3>
+    <div class="contact-item">
+        <strong>Address:</strong>
+        <p>123 Italian street, City center , Ny 10001</p>
+    </div>
+</div>
+
+```
+
+> **Analogy:** *A printed business card on display.*
+> Organizes key contact details into distinct `.contact-item` blocks using `<strong>` for bold labels and `<p>` for detail text.
+> 
+> 
+
+```html
+<form>
+
+```
+
+> **Analogy:** *An interactive reservation clipboard.*
+> The main HTML wrapper element that collects input values filled in by visitors.
+> 
+> 
+
+```html
+<div class="form-group">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required>
+</div>
+
+```
+
+> **Analogy:** *A labeled fill-in-the-blank line.*
+> * `<div class="form-group">`: Wraps labels and inputs together into spaced rows.
+> 
+> 
+> * `<label for="name">`: Links text directly to its input box for accessibility.
+> 
+> 
+> * `<input type="text" required>`: Creates a single-line text box and forces users to complete it before submitting.
+> 
+> 
+> 
+> 
+
+```html
+<input type="email" id="email" name="email" required>
+<input type="tel" id="phone" name="phone">
+<input type="date" id="date" name="date" required>
+
+```
+
+> **Analogy:** *Specialized input tools.*
+> * `type="email"`: Validates that entries follow email address syntax.
+> 
+> 
+> * `type="tel"`: Displays a phone keypad layout on mobile screens.
+> 
+> 
+> * `type="date"`: Opens a native pop-up calendar picker on desktop and mobile browsers.
+> 
+> 
+> 
+> 
+
+```html
+<select name="time" id="time">
+    <option value="">Select Time</option>
+    <option value="18:00">6:00 PM</option>
+</select>
+
+```
+
+> **Analogy:** *A pull-down scroll menu.*
+> Creates a dropdown menu (`<select>`) filled with individual selectable options (`<option>`).
+> 
+> 
+
+```html
+<textarea id="message" name="message" rows="4" placeholder="Any special dietary requirements..."></textarea>
+
+```
+
+> **Analogy:** *A blank notepad for extra instructions.*
+> Provides a multi-line text box (`rows="4"`) allowing users to write multi-sentence notes or requests.
+> 
+> 
+
+```html
+<button type="submit" class="btn btn-primary">Submit Reservation</button>
+
+```
+
+> **Analogy:** *Ringing the front desk service bell.*
+> Triggers form submission when clicked.
+> 
+> 
+
+---
+
+## 🎨 CSS Line-by-Line Breakdown
+
+### Layout & Spacing
+
+```css
+.contact {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+```
+
+> **Analogy:** *Painting the reception area off-white for visual contrast.*
+> Applies a soft off-white background (`#f8f9fa`) with generous `5rem` vertical padding.
+> 
+> 
+
+```css
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+```
+
+> **Analogy:** *Dividing a desk into two equal halves.*
+> Uses CSS Grid (`1fr 1fr`) to place the contact details and reservation form into equal side-by-side columns with a 3rem gap.
+> 
+> 
+
+---
+
+### Form Controls & Input Styling
+
+```css
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+```
+
+> **Analogy:** *Pasting bold field instructions directly above each input box.*
+> Sets labels to `display: block` so inputs drop onto a new line directly below their titles.
+> 
+> 
+
+```css
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+```
+
+> **Analogy:** *Giving every input field matching rounded, comfortable text boxes.*
+> Forces all inputs to stretch full width (`100%`), adds internal padding (`0.75rem`), rounded edges (`5px`), and a smooth transition animation for focus states.
+> 
+> 
+
+```css
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e74c3c;
+}
+
+```
+
+> **Analogy:** *Lighting up an input box with a red glow when you click inside it.*
+> * `outline: none`: Removes default browser blue outline borders.
+> 
+> 
+> * `border-color: #e74c3c`: Highlights active form inputs with our theme's accent crimson red.
