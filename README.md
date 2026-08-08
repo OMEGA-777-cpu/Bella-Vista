@@ -688,3 +688,170 @@ Building the interactive **Our Menu** section of the Bella Vista website using s
 
 > **Analogy:** *A bright red price tag sticker.*
 > Highlights the price in bold red text (`#e74c3c`) so customers can instantly spot cost details.
+
+# Lecture 4: About Section & Two-Column Grid Layouts
+
+Building the **About Bella Vista** brand story section using two-column CSS Grid alignment, responsive image handling with `object-fit`, and clean content typography[cite: 5, 6].
+
+---
+
+## 📄 HTML Line-by-Line Breakdown
+
+```html
+<section id="about" class="about">
+
+```
+
+> **Analogy:** *Reserving a new wing in a photo gallery.*
+> A semantic `<section>` container using `id="about"` so the top navigation link (`href="#about"`) smoothly scrolls directly to this section on the page.
+> 
+> 
+
+```html
+<div class="container">
+    <h2 class="section-title">About Bella Vista</h2>
+
+```
+
+> **Analogy:** *Reusing standardized room dimensions and wall plaques.*
+> Reuses our global `.container` to keep content bounded at 1200px max width, and applies `.section-title` for cohesive heading styling.
+> 
+> 
+
+```html
+<div class="about-content">
+
+```
+
+> **Analogy:** *A two-sided display cabinet.*
+> Serves as the CSS Grid parent container that splits the story text and photo side-by-side into two equal columns.
+> 
+> 
+
+```html
+<div class="about-text">
+    <h3>Our Story</h3>
+    <p>Founded in 1995 by the Rossi Family, Bella Vista has been serving authentic Italian cuisine...</p>
+    <p>Every dish is prepared with love and attention to detail...</p>
+</div>
+
+```
+
+> **Analogy:** *The biography panel.*
+> Encapsulates the story heading (`<h3>`) and narrative paragraphs (`<p>`) into a clean content column on the left side.
+> 
+> 
+
+```html
+<div class="about-image">
+    <img src="[https://images.unsplash.com/](https://images.unsplash.com/)..." alt="Restaurant Interior">
+</div>
+
+```
+
+> **Analogy:** *A framed portrait on the gallery wall.*
+> Places the restaurant interior photo in the right column, using descriptive `alt` text for screen readers and accessibility.
+> 
+> 
+
+---
+
+## 🎨 CSS Line-by-Line Breakdown
+
+### Section Background & Column Grid
+
+```css
+.about {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+```
+
+> **Analogy:** *Alternating wall colors between gallery rooms.*
+> Sets a crisp white background to create visual contrast against the off-white background (`#f8f9fa`) of the preceding Menu section, keeping page sections distinct.
+> 
+> 
+
+```css
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+```
+
+> **Analogy:** *Splitting a table evenly between a open book and a photo frame.*
+> * `display: grid; grid-template-columns: 1fr 1fr`: Divides the layout into two equal fraction columns (50% text, 50% image).
+> 
+> 
+> * `gap: 3rem`: Adds breathing room between the text column and image column.
+> 
+> 
+> * `align-items: center`: Vertically centers the text block alongside the height of the image.
+> 
+> 
+> 
+> 
+
+---
+
+### Typography Styling
+
+```css
+.about-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+```
+
+> **Analogy:** *Setting the chapter title in a storybook.*
+> Styles the sub-heading in dark navy (`#2c3e50`) with space beneath it to separate it from body paragraphs.
+> 
+> 
+
+```css
+.about-text p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+```
+
+> **Analogy:** *Formatting book prose for comfortable reading.*
+> Sets paragraph text to a readable soft gray (`#555`) with 1.6 line height so multi-line paragraphs don't feel squished together.
+> 
+> 
+
+---
+
+### Image Framing & Shadows
+
+```css
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+```
+
+> **Analogy:** *Fitting a photo into a custom frame without stretching or distorting the picture.*
+> * `width: 100%`: Forces the image to stretch across the full width of its grid column.
+> 
+> 
+> * `object-fit: cover`: Crops the photo intelligently to fill the container without squishing or stretching the image.
+> 
+> 
+> * `border-radius: 10px`: Smoothly rounds the corners of the image card.
+> 
+> 
+> * `box-shadow: 0 4px 15px rgba(0,0,0,0.1)`: Gives the photo subtle elevation depth off the white page.
