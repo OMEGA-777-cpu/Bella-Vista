@@ -1074,3 +1074,184 @@ Building the **Contact & Table Reservation** section of the Bella Vista website 
 > 
 > 
 > * `border-color: #e74c3c`: Highlights active form inputs with our theme's accent crimson red.
+
+# Lecture 6: CSS Custom Properties, Responsive Design & Animations
+
+Upgrading the **Bella Vista** project with centralized CSS Variables (`:root`), mobile-first Responsive Media Queries (`@media`), and keyframe entrance animations (`@keyframes`)[cite: 9].
+
+---
+
+## 🎨 CSS Line-by-Line Breakdown
+
+### CSS Custom Properties (Variables)
+
+```css
+:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #2c3e50;
+    --accent-color: #3498db;
+    --light-bg: #f8f9fa;
+    --dark-text: #333;
+    --light-text: #666;
+    --border-radius: 8px;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+```
+
+> **Analogy:** *A central master light switch control panel.*
+> Declaring variables in the `:root` pseudo-class makes values available globally across your stylesheet. If you want to rebrand your entire website's primary color, you change it in **one line** here instead of hunting through hundreds of lines.
+> 
+> 
+
+```css
+.btn-primary {
+    background-color: var(--primary-color, #ff0000);
+    color: white;
+    transition: var(--transition);
+}
+
+```
+
+> **Analogy:** *Plugging into the main generator with a backup battery.*
+> Uses `var(--primary-color)` to pull from the global theme. The second value (`#ff0000`) acts as a **fallback color** if the custom property is ever missing or undefined.
+> 
+> 
+
+---
+
+### Responsive Design (Media Queries)
+
+```css
+@media (max-width: 768px) {
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 80%;
+        text-align: center;
+    }
+
+    .about-content, .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+```
+
+> **Analogy:** *A Transformer vehicle reconfiguring its shape for narrow bridges.*
+> Detects when screen width shrinks to 768px or lower (tablets and smartphones):
+> 
+> 
+> * Reduces hero headline size.
+> 
+> 
+> * Stacks action buttons vertically (`flex-direction: column`) so they are easy to tap with a thumb.
+> 
+> 
+> * Converts 2-column grids (`.about-content`, `.contact-content`) into single full-width columns (`1fr`).
+> 
+> 
+> * Stacks the header navbar elements into a vertical row.
+> 
+> 
+> 
+> 
+
+```css
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+```
+
+> **Analogy:** *Fine-tuning layouts for small smartphone screens.*
+> Further tightens margins, shrinks font sizes, and stacks navigation links into a vertical menu for small mobile screens.
+> 
+> 
+
+---
+
+### Keyframe Animations & Staggered Transitions
+
+```css
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+```
+
+> **Analogy:** *A film director's storyboard frame-by-frame guide.*
+> Defines a custom animation sequence named `fadeInUp` that starts invisibly 30px below its final position and glides up smoothly into full opacity.
+> 
+> 
+
+```css
+.menu-item {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.2s; }
+.menu-item:nth-child(3) { animation-delay: 0.3s; }
+
+```
+
+> **Analogy:** *Stage performers stepping into the light one after another.*
+> * `animation-fill-mode: both`: Ensures elements stay invisible before the animation starts.
+> 
+> 
+> * `:nth-child()` & `animation-delay`: Staggers card entrances by 0.1s intervals, creating a dynamic wave effect as items slide onto the screen.
+> 
+> 
+> 
+> 
+
+```css
+.section-title {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.section-title.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+```
+
+> **Analogy:** *Pre-setting a stage prop so a trigger can activate it.*
+> Prepares headers to start invisible and slightly lowered. When a `.animate` class is toggled (e.g. via JS on scroll), it smoothly transitions into full view.
