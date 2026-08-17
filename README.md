@@ -11,7 +11,7 @@ CSS Architecture: Utilizes :root CSS Custom Properties (variables) for a central
 
 Micro-Interactions: Custom @keyframes entrance animations and smooth hover state transitions.
 
-Semantic HTML: Properly structured document utilizing <header>, <nav>, <main>, <section>, and <footer> tags for accessibility and SEO.
+Semantic HTML: Properly structured document utilizing < header >, < nav >, < main >, < section >, and < footer > tags for accessibility and SEO.
 
 # Lecture 1: Restaurant Header & Navigation
 
