@@ -1,3 +1,18 @@
+Bella Vista Restaurant Website
+A complete, responsive front-end landing page for a fictional Italian restaurant. This project was built entirely from scratch using vanilla HTML5 and modern CSS3 to demonstrate core web development principles. It features a fully responsive layout without the use of external frameworks (like Bootstrap or Tailwind).
+
+Key Features:
+
+Modern Layouts: Built utilizing CSS Flexbox and advanced CSS Grid (auto-fit and minmax).
+
+Fully Responsive: Mobile-first media queries ensure perfect rendering across desktop, tablet, and smartphone screens.
+
+CSS Architecture: Utilizes :root CSS Custom Properties (variables) for a centralized, easily updatable color theme.
+
+Micro-Interactions: Custom @keyframes entrance animations and smooth hover state transitions.
+
+Semantic HTML: Properly structured document utilizing <header>, <nav>, <main>, <section>, and <footer> tags for accessibility and SEO.
+
 # Lecture 1: Restaurant Header & Navigation
 
 A clean, responsive header and navigation section for the **Bella Vista** restaurant website, built using vanilla HTML5 and CSS.
